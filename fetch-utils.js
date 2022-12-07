@@ -45,7 +45,6 @@ export async function incrementStars(id) {
         .from('profiles')
         .update({ stars: profile.data.stars + 1 })
         .match({ id });
-    console.log(response);
     return response;
 }
 
@@ -86,5 +85,10 @@ export async function upsertBio(profileObject, id, user) {
         .update({ bio: profileObject.bio, avatar_url: profileObject.avatar_url })
         .match({ id, user_id: user.id })
         .single();
+    return response;
+}
+
+export async function createMessage(message) {
+    const response = await client.from('messages').insert(message).single();
     return response;
 }

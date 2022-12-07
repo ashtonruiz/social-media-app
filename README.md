@@ -24,6 +24,16 @@ https://zgixhmlshitskkemwyaf.supabase.co/storage/v1/object/public/avatars/324881
         - renderProfile
         - Event listener on profile for stars rating system. increment/decrementStars function (redisplay profile)
 
+## Plan B
+
+-   page load -> add subcribing for realtime updates on CREATE of message
+-   form submit
+    -   get user's form input values
+    -   check sender user has profile info
+    -   send message to supabase
+    -   reset form
+    -   (before we implement realtime) call our fetch&Display function
+
 ## Screenshots
 
 ![](/assets/avatars.bucket.png)
