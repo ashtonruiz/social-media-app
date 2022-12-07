@@ -61,6 +61,10 @@ main {
     border-radius: 100%;
 }
 
+.avatar-home {
+    width: 300px;
+}
+
 .error {
     min-height: 1em;
     color: red;
