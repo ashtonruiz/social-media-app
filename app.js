@@ -6,6 +6,8 @@ import { renderProfiles } from './render-utils.js';
 
 /* Get DOM Elements */
 const profileList = document.querySelector('#profile-list');
+const profileWrapper = document.createElement('div');
+
 /* State */
 
 /* Events */
@@ -18,3 +20,5 @@ window.addEventListener('load', async () => {
     }
 });
 /* Display Functions */
+
+// element that will be wrapped

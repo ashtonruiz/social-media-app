@@ -4,7 +4,7 @@ export function renderProfiles(profile) {
     const usernameP = document.createElement('p');
 
     linkA.classList.add('card');
-    // imgEl.classList.add('avatar');
+    imgEl.classList.add('avatar');
 
     linkA.href = `../profiles/?id=${profile.id}`;
 

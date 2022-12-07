@@ -22,7 +22,7 @@ export async function signInUser(email, password) {
         password,
     });
 }
-
+clo;
 export async function signOutUser() {
     return await client.auth.signOut();
 }

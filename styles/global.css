@@ -1,11 +1,13 @@
 :root {
     --background: rgb(224, 234, 247);
-    --header-background: white;
+    --header-background: rgb(255, 248, 248);
     --text-color: rgb(7, 5, 68);
     --label-color: rgb(75, 102, 98);
     --placeholder-color: rgb(136, 136, 153);
     --offset-color: rgb(217, 236, 217);
     --action-color: rgb(77, 132, 252);
+    --background-image: url(/assets/octogram-logo.png);
+    --background-size: cover;
 
     --primary-font: 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
         'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
@@ -35,7 +37,7 @@ body {
 }
 
 .page-header .logo {
-    height: 100%;
+    height: 80px;
 }
 
 .page-header .title {
@@ -72,4 +74,7 @@ main {
 
 .hidden {
     display: none;
+}
+
+.card {
 }
