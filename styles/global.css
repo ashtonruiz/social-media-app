@@ -53,11 +53,12 @@ body {
 
 main {
     padding: 20px;
+    text-align: center;
 }
 
 .avatar {
     height: 36px;
-    width: 36px;
+    width: 12px;
     object-fit: cover;
     border: 1px solid var(--placeholder-color);
     border-radius: 100%;
@@ -76,5 +77,6 @@ main {
     display: none;
 }
 
-.card {
+header {
+    background-image: url(/assets/octogram-logo.png);
 }
