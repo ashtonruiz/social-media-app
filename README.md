@@ -8,8 +8,8 @@ https://zgixhmlshitskkemwyaf.supabase.co/storage/v1/object/public/avatars/324881
 
 ## New Plan
 
-    - edit button only shows if user_id matches the user
-    - create profile submit needs to redirect to home page
+    - create global message board on home page
+        -
 
 ## Plan
 

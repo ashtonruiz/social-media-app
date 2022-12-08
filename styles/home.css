@@ -1,0 +1,235 @@
+:root {
+    --background: rgb(224, 234, 247);
+    --header-background: white;
+    --text-color: rgb(7, 5, 68);
+    --label-color: rgb(75, 102, 98);
+    --placeholder-color: rgb(136, 136, 153);
+    --offset-color: rgb(217, 236, 217);
+    --action-color: rgb(77, 132, 252);
+
+    --primary-font: 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
+        'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
+}
+
+body {
+    height: 100vh;
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    background: url('/assets/background.jpg');
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.page-header {
+    top: 0;
+    padding: 15px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    /* background-color: var(--header-background); */
+}
+
+.page-header .title {
+    font-size: 2em;
+    font-weight: 800;
+    flex-grow: 2;
+}
+
+.page-header nav {
+    display: flex;
+    gap: 20px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+}
+
+#user-container {
+    height: 100%;
+    grid-column-start: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid black 1px;
+    margin: 5px;
+    padding: 1px;
+    background: rgb(7, 5, 68, 0.5);
+    border-radius: 2rem;
+}
+
+.username-star::after {
+    content: '⭐';
+}
+
+#chat-container {
+    height: 100%;
+    grid-column-start: 3;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid black 1px;
+    margin: 5px;
+    padding: 1px;
+    background: rgb(7, 5, 68, 0.5);
+    border-radius: 2rem;
+}
+
+#messages-container {
+    height: 75%;
+    width: 90%;
+}
+
+.message-li * {
+    color: white;
+}
+
+.message-info {
+    margin-bottom: 2px;
+    font-size: 0.75rem;
+    text-decoration: underline;
+}
+
+.sender {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.message-text {
+    margin-top: 2px;
+    font-size: 1.5rem;
+}
+
+.messages-ul {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 600px;
+    width: 98%;
+    margin: 10px;
+    border: solid rgb(7, 5, 68) 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.75);
+
+    border-radius: 1rem;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+}
+
+.message-li {
+    padding: 3px;
+}
+
+.message-li:nth-child(odd) {
+    background: rgba(117, 117, 132, 0.9);
+}
+
+.message-li:nth-child(even) {
+    background: rgba(54, 54, 60, 0.9);
+}
+
+.message-li p {
+    margin-bottom: 0;
+}
+
+#chat-form {
+    align-content: flex-end;
+    margin: 10px;
+}
+
+#chat-form input {
+    height: 60px;
+    width: 350px;
+    border: double rgb(7, 5, 68) 5px;
+    border-radius: 1rem;
+}
+
+.avatar {
+    height: 36px;
+    width: 36px;
+    object-fit: cover;
+    border: 1px solid var(--placeholder-color);
+    border-radius: 100%;
+}
+
+.error {
+    min-height: 1em;
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+#profile-list {
+    display: flex;
+    flex-direction: column;
+}
+
+#profile-list a {
+    text-decoration: none;
+}
+
+.card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5px;
+    padding: 0.5rem 2rem;
+    border: double gold 8px;
+    border-radius: 4rem;
+    background: rgb(105, 203, 214, 0.85);
+    box-shadow: 0 1px 5px rgb(7, 5, 68, 0.75), 0 1px 3px rgb(7, 5, 68, 0.75);
+}
+
+.card:hover {
+    background: rgb(77, 132, 252);
+}
+
+.avatar-home {
+    height: 75px;
+    max-width: 150px;
+    margin-right: 5px;
+    border: solid rgb(7, 5, 68) 3px;
+    border-radius: 0.5rem;
+}
+
+.username-home {
+    color: rgb(7, 5, 68);
+    font-size: 2rem;
+}
+
+#avatar-image {
+    margin-top: 1rem;
+    height: 500px;
+    max-width: 1000px;
+}
+
+.username-h2 {
+    font-size: 5rem;
+    margin-top: 5px;
+    font-weight: bolder;
+    text-decoration: underline;
+    color: white;
+}
+
+#home-h2 {
+    font-size: 5rem;
+    text-decoration: underline;
+    color: white;
+    margin: 5px;
+}
+
+.profile-detail {
+    display: flex;
+    justify-content: center;
+    border: solid black 1px;
+    padding: 10px;
+    border-radius: 0.5rem;
+    width: 25%;
+    background: rgba(255, 255, 255, 0.75);
+}

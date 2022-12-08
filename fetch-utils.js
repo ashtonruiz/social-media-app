@@ -1,6 +1,6 @@
-const SUPABASE_URL = 'https://zgixhmlshitskkemwyaf.supabase.co';
+const SUPABASE_URL = 'https://uqwstvnsesaenalrdjyp.supabase.co';
 const SUPABASE_KEY =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpnaXhobWxzaGl0c2trZW13eWFmIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjgxMDgwODYsImV4cCI6MTk4MzY4NDA4Nn0.nMjJ-vp1PSZuD_oT9AQGKADmPu3OCZp9Uf4n2XbaBjQ';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxd3N0dm5zZXNhZW5hbHJkanlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjgxMDgwMjYsImV4cCI6MTk4MzY4NDAyNn0.bZ660DcBSXEiAg5PHlsCACk9kEfmD8_HYAnhjOB69Vo';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Auth related functions */
@@ -38,6 +38,12 @@ export async function getProfileById(id) {
     return response;
 }
 
+export async function getProfile(user_id) {
+    const response = await client.from('profiles').select('*').match({ user_id }).single();
+    // ({ user_id }) = ({user_id : user_id})
+    return response.data;
+}
+
 export async function incrementStars(id) {
     const profile = await getProfileById(id);
 
@@ -70,21 +76,43 @@ export async function uploadImage(imagePath, imageFile) {
     return url;
 }
 
-export async function createNewUser(user, url) {
-    const response = await client.from('profiles').insert({
-        user_id: client.auth.user().id,
-        username: user.username,
-        bio: user.bio,
-        avatar_url: url,
-    });
+export async function upsertNewUser(profile) {
+    const response = await client
+        .from('profiles')
+        .upsert(profile, { onConflict: 'user_id' })
+        .single();
     return response;
 }
 
-export async function upsertBio(profileObject, id, user) {
+export async function updateBio(profileObject, id, user) {
     const response = await client
         .from('profiles')
         .update({ bio: profileObject.bio, avatar_url: profileObject.avatar_url })
         .match({ id, user_id: user.id })
         .single();
     return response;
+}
+
+export async function createMessage(message) {
+    const response = await client.from('messages').insert(message).single();
+    return checkError(response);
+}
+
+export function onMessage(handleMessage) {
+    client
+        // what table and what rows are we interested in?
+        .from(`messages`)
+        // what type of changes are we interested in?
+        .on('INSERT', handleMessage)
+        // okay do it!
+        .subscribe();
+}
+
+export async function fetchMessages() {
+    const response = await client.from('messages').select('*');
+    return response.data;
+}
+
+function checkError(response) {
+    return response.error ? console.error(response.error) : response.data;
 }
