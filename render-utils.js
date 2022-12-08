@@ -15,7 +15,7 @@ export function renderProfiles(profile) {
 
     usernameP.textContent = `${profile.username}`;
     // directs to specific profile
-    linkA.href = `../profile/?id=${profile.id}`;
+    linkA.href = `../profiles/?id=${profile.id}`;
     linkA.append(imgEl, usernameP);
     return linkA;
 }

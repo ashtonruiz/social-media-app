@@ -111,7 +111,8 @@ messageForm.addEventListener('submit', async (e) => {
     const user = getUser();
     //console.log('user', user);
     // passing the user.id into getProfile to check if there is an associated profile
-    const senderProfile = await getProfiles(user.id);
+    const senderProfile = await getProfileById(id);
+    console.log('senderProfile', senderProfile);
     // if theres not a profile associated with the logged in user...
     if (!senderProfile) {
         // send an alert and redirect the user
