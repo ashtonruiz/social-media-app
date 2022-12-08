@@ -12,14 +12,17 @@ const profileWrapper = document.createElement('div');
 
 /* Events */
 window.addEventListener('load', async () => {
+    displayProfiles();
+});
+/* Display Functions */
+async function displayProfiles() {
+    profileList.textContent = '';
     const profiles = await getProfiles();
-    console.log('profiles', profiles);
 
     for (let profile of profiles) {
         const profileEl = renderProfiles(profile);
+        console.log('profileEl', profileEl);
         profileList.append(profileEl);
     }
-});
-/* Display Functions */
-
+}
 // element that will be wrapped

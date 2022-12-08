@@ -30,7 +30,7 @@ export async function signOutUser() {
 /* Data functions */
 export async function getProfiles() {
     const response = await client.from('profiles').select('*');
-    return response;
+    return response.data;
 }
 
 export async function getProfileById(id) {

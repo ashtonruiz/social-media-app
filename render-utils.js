@@ -2,6 +2,7 @@ export function renderProfiles(profile) {
     const linkA = document.createElement('a');
     const imgEl = document.createElement('img');
     const usernameP = document.createElement('p');
+    // const profileDiv = document.createElement('div');
 
     linkA.classList.add('card');
     imgEl.classList.add('avatar');
@@ -10,10 +11,11 @@ export function renderProfiles(profile) {
 
     imgEl.classList.add('avatar-home');
     imgEl.src = profile.avatar_url;
-    imgEl.alt = 'avatar';
+    imgEl.alt = '/assets/octogram-logo.png';
 
     usernameP.textContent = `${profile.username}`;
-
+    // directs to specific profile
+    linkA.href = `../profile/?id=${profile.id}`;
     linkA.append(imgEl, usernameP);
     return linkA;
 }

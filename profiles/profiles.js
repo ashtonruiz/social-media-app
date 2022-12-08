@@ -24,14 +24,13 @@ const user = getUser();
 window.addEventListener('load', async () => {
     const user2 = await getProfileById(id);
 
-    if (user.id === user2.data.user_id) {
+    // removed user_id from user2.data at the end from the line because I think that might be the problem
+    if (user.id === user2.data) {
         bioForm.classList.remove('hidden');
     }
     //if user_id from getUser() is same as user_id from getProfileById
     //bioForm.classList.remove('hidden');
-    onMessage(id, async (payload) => {
-        console.log('payload', payload);
-    });
+    onMessage(id, async (payload) => {});
     displayProfile();
 });
 
