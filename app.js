@@ -13,8 +13,9 @@ const profileWrapper = document.createElement('div');
 /* Events */
 window.addEventListener('load', async () => {
     const profiles = await getProfiles();
+    console.log('profiles', profiles);
 
-    for (let profile of profiles.data) {
+    for (let profile of profiles) {
         const profileEl = renderProfiles(profile);
         profileList.append(profileEl);
     }

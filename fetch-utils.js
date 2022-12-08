@@ -65,6 +65,9 @@ export async function uploadImage(imagePath, imageFile) {
         // we want to replace and existing file with same name
         upsert: true,
     });
+    if (response.error) {
+        return null;
+    }
     const url = `${SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
     return url;
 }
