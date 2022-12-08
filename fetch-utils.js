@@ -92,3 +92,13 @@ export async function createMessage(message) {
     const response = await client.from('messages').insert(message).single();
     return response;
 }
+
+export function onMessage(profileId, handleMessage) {
+    client
+        // what table and what rows are we interested in?
+        .from(`messages:recipient_id=eq.${profileId}`)
+        // what type of changes are we interested in?
+        .on('INSERT', handleMessage)
+        // okay do it!
+        .subscribe();
+}

@@ -5,6 +5,7 @@ import {
     getProfiles,
     getUser,
     incrementStars,
+    onMessage,
     uploadImage,
     upsertBio,
 } from '../fetch-utils.js';
@@ -28,6 +29,9 @@ window.addEventListener('load', async () => {
     }
     //if user_id from getUser() is same as user_id from getProfileById
     //bioForm.classList.remove('hidden');
+    onMessage(id, async (payload) => {
+        console.log('payload', payload);
+    });
     displayProfile();
 });
 
