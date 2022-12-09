@@ -34,7 +34,7 @@ export async function getProfiles() {
 }
 
 export async function getProfileById(id) {
-    const response = await client.from('profiles').select('*').match({ id }).single();
+    const response = await client.from('profiles').select('*, messages(*)').match({ id }).single();
     return response;
 }
 
@@ -93,6 +93,7 @@ export async function upsertBio(profileObject, id, user) {
 
 export async function createMessage(message) {
     const response = await client.from('messages').insert(message).single();
+    console.log('response', response);
     return response;
 }
 
