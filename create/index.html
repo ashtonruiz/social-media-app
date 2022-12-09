@@ -15,7 +15,7 @@
             defer
             src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"
         ></script>
-        <script type="module" src="app.js"></script>
+        <script type="module" src="create.js"></script>
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,25 +26,30 @@
         />
 
         <!-- css -->
-        <link rel="stylesheet" href="/styles/reset.css" />
-        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/global.css" />
         <!-- add link for page specific css -->
     </head>
 
     <body>
         <header class="page-header">
-            <img class="logo" src="/assets/octogram-logo.png" alt="logo" />
-            <p class="title"></p>
+            <p class="title">Octogram</p>
             <nav>
-                <a href="./create/">Create New Profile</a>
                 <a href="/">Home</a>
-                <a id="sign-out-link" href="auth">Sign Out</a>
+                <a id="sign-out-link" href="../auth">Sign Out</a>
             </nav>
         </header>
 
         <main>
-            <h1>User Profiles</h1>
-            <div id="profile-list"></div>
+            <form id="profile-form">
+                <label for="">username</label>
+                <input type="text" name="username" minlength="3" />
+                <label for="">Bio</label>
+                <input name="bio" type="text" />
+                <label for="">Avatar</label>
+                <input type="file" name="avatar" placeholder="upload an image..." />
+                <button type="submit">Submit</button>
+            </form>
         </main>
     </body>
 </html>

@@ -1,26 +1,40 @@
-## The Golden Rule:
+# Octogram App
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+![](/assets/wireframe.png)
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+![](/assets/table.png)
 
-## Making a plan
+https://zgixhmlshitskkemwyaf.supabase.co/storage/v1/object/public/avatars/32488156-c401-4c8b-a6d2-8e9b9f395c10/headshot18.png
 
-1. **Make a drawing of your app. Simple "wireframes"**
-1. **Once you have a drawing, name the HTML elements you'll need to realize your vision**
-1. **For each HTML element ask: Why do I need this?**
-1. **Once we know _why_ we need each element, think about how to implement the "Why" as a "How"**
-1. **Find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change?**
-1. **Think about how to validate each of your features according to a Definition of Done**
-1. **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
+## New Plan
 
-Additional considerations:
+    - edit button only shows if user_id matches the user
+    - create profile submit needs to redirect to home page
 
--   Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
--   Consider your data model.
-    -   What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need?
-    -   What are the key/value pairs?
-    -   What arrays might you need?
-    -   What needs to live in a persistence layer?
--   Is there some state we need to initialize?
--   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be reused?)
+## Plan
+
+    - Table in Supabase connected to auth table
+    - User is directed to main page where they will see a list of users
+        - create container for user cards in HTML
+        - FetchAllUsers and display users on load
+        - Event listener on each card which will redirect user to user profile
+    - When profile is chosen
+        - fetchUser(id) by user_id by URL and avatar, bio, rating
+        - display all profile info (avatar, bio, rating, username)
+        - renderProfile
+        - Event listener on profile for stars rating system. increment/decrementStars function (redisplay profile)
+
+## Plan B
+
+-   page load -> add subcribing for realtime updates on CREATE of message
+-   form submit
+    -   get user's form input values
+    -   check sender user has profile info
+    -   send message to supabase
+    -   reset form
+    -   (before we implement realtime) call our fetch&Display function
+
+## Screenshots
+
+![](/assets/avatars.bucket.png)
+![](/assets/RLS.policies.png)
